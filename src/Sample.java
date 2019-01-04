@@ -1,0 +1,110 @@
+
+// http://code-exercises.com/programming/easy/10/factorial
+
+public class Sample {
+    public static void main(String[] args) {
+        // sum(100,200)
+
+//        Integer max = 20;
+//        System.out.println(factorial(max));
+//        System.out.println(factorialRecursively(max));
+
+//        Integer[] searchList = {1,5,6,8,99,100};
+//        Integer n = 100;
+//        System.out.println(search(n, searchList));
+//        System.out.println(searchRefactor(n, searchList));
+
+        String str = "abcdefgh";
+        System.out.println(str + " -> " + reverse(str));
+    }
+
+    /*
+        3. Reverse String
+Write a method that reverses a string.
+For example, 'java interview' becomes 'weivretni avaj'.
+     */
+    public static String reverse(String s) {
+//        String rs = new String(s);
+
+//        System.out.println(s);
+
+        char dst[] = new char[s.length() + 1];
+//        for (int j = 0; j < s.length() + 1; ++j) {
+//            dst[j] = 0;
+//        }
+        s.getChars(0, s.length(), dst, 0);
+//        dst[s.length()] = 0;
+//        System.out.println(dst);
+
+        for(Integer i = 0, length = s.length(), half = length / 2; i < half; ++i) {
+            char tmp = dst[i];
+            dst[i] = dst[length - 1 - i];
+            dst[length - 1 - i] = tmp;
+        }
+
+        return new String(dst, 0, s.length());
+    }
+
+
+    /*
+    2. Linear Search
+Write a method that returns the index of the first occurrence of given integer in a list.
+Assume that the index of the first element in the list is zero.
+If the number does not exist return -1.
+     */
+    public static int search(Integer n, Integer[] list) {
+        for(Integer i = 0, cnt = list.length; i < cnt; ++i) {
+            if(list[i] == n) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int searchRefactor(Integer n, Integer[] list) {
+        for(Integer i = 0, cnt = list.length, half = cnt/2, revertIndex; i <= half; ++i) {
+            if(list[i] == n) {
+                return i;
+            }
+
+            revertIndex = cnt - 1 - i;
+
+            if(list[revertIndex] == n) {
+                return revertIndex;
+            }
+        }
+
+        return -1;
+    }
+
+
+
+    /*
+    1. Factorial
+Write a method that calculates the factorial of a given number.
+Factorial is the product of all positive integers less than or equal to n. For example, factorial(4) = 4x3x2x1 = 24.
+TIP: To make it more interesting, try to do it recursively.
+     */
+    public static long factorial(Integer n) {
+        long result = 1;
+
+        for(Integer i = 2; i <= n; ++i) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    public static long factorialRecursively(Integer n) {
+        if(n == 1) {
+            return 1;
+        }
+
+        return n * factorialRecursively(n-1);
+    }
+
+    public static Integer sum(Integer i, Integer j) {
+        return  i + j;
+    }
+}
