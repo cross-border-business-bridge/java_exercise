@@ -1,6 +1,9 @@
 
 // http://code-exercises.com/programming/easy/10/factorial
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sample {
     public static void main(String[] args) {
         // sum(100,200)
@@ -14,8 +17,117 @@ public class Sample {
 //        System.out.println(search(n, searchList));
 //        System.out.println(searchRefactor(n, searchList));
 
-        String str = "abcdefgh";
-        System.out.println(str + " -> " + reverse(str));
+//        String str = "abcdefgh";
+//        System.out.println(str + " -> " + reverse(str));
+
+//        Integer[] list = {90, 1, 4, 288, 7};
+//        System.out.println("The maximum is = " + maximum(list));
+
+
+//        Integer[] list = {90, 1, 4, 288, 7};
+//        List<Integer> list = new ArrayList<Integer>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        list.add(4);
+//        System.out.println("The average is = " + average(list));
+
+//        List<String> list = new ArrayList<String>();
+//        list.add("abc");
+//        list.add("DEf");
+//        System.out.println("The average is = " + upperCase(list));
+
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(40);
+        System.out.println("getElement = " + getElement(list, 5));
+    }
+
+    /*
+    8. Number Of Tree Nodes
+Write a method that returns the number of nodes in a binary tree.
+TreeNode API methods: node.left() and node.right().
+     */
+
+
+    /*
+        7. Nth Odd Element
+Write a method that returns th nth element of a list. If the index of the element exceeds the list size, then return -1.
+     */
+    public static Integer getElement(List<Integer> list, Integer n) {
+        if(n < 0) {
+            return -1;
+        }
+
+        Object[] array = list.toArray();
+        if(n > array.length) {
+            return -1;
+        }
+
+        return (Integer)array[n-1];
+    }
+
+    /*
+    6. Convert to Upper Case (Java 8 Lambdas and Streams)
+Write a method that converts all strings in a list to their upper case.
+     */
+    public static List<String> upperCase(List<String> list) {
+        List<String> retList = new ArrayList<String>(list.size());
+        for(Integer i = 0; i < list.size(); ++i) {
+            retList.add(list.get(i).toUpperCase());
+        }
+
+        return retList;
+    }
+
+    public static List<String> upperCaseLambdas(List<String> list) {
+        List<String> retList = new ArrayList<String>(list.size());
+        for(Integer i = 0; i < list.size(); ++i) {
+            retList.add(list.get(i).toUpperCase());
+        }
+
+        return retList;
+    }
+
+    /*
+        5. Average Value (Java 8 Lambdas and Streams)
+Write a method that returns the average of a list of integers.
+     */
+    public static Double average(List<Integer> list) {
+        Integer sum = 0;
+        for(Integer i = 0; i < list.size(); ++i) {
+            sum += list.get(i);
+        }
+
+        return (sum / (list.size() * 1.0));
+    }
+
+    public static Double averageLambdas(List<Integer> list) {
+        Integer sum = 0;
+        for(Integer i = 0; i < list.size(); ++i) {
+            sum += list.get(i);
+        }
+
+        return (sum / (list.size() * 1.0));
+    }
+
+    /*
+        4. Find Maximum
+Write a method that returns the largest integer in the list.
+You can assume that the list has at least one element.
+     */
+    public static Integer maximum(Integer[] list) {
+        Integer max = list[0];
+
+        for(Integer i = 1; i < list.length; ++i) {
+            if(list[i] > max) {
+                max = list[i];
+            }
+        }
+
+        return max;
     }
 
     /*
