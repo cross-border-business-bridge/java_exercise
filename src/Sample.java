@@ -1,6 +1,7 @@
 
 // http://code-exercises.com/programming/easy/10/factorial
 
+import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,9 @@ public class Sample {
 Write a method that returns the number of nodes in a binary tree.
 TreeNode API methods: node.left() and node.right().
      */
+    public static Integer getNumberOfNodes(TreeNode node) {
 
+    }
 
     /*
         7. Nth Odd Element
